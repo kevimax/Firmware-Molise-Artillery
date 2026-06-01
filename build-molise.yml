@@ -1,0 +1,27 @@
+name: Build Molise (X1 / MKS GEN L)
+
+on:
+  push:
+  workflow_dispatch:        # permet de lancer manuellement depuis l'onglet Actions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install PlatformIO
+        run: pip install --upgrade platformio
+
+      - name: Build firmware
+        run: pio run -e mega2560
+
+      - name: Upload .hex
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware-mega2560
+          path: .pio/build/mega2560/*.hex
