@@ -2452,7 +2452,7 @@
 // Other output doesn't need to be that speedy.
 // :[0, 2, 4, 8, 16, 32, 64, 128, 256]
  #if ENABLED(MKSGENL) || ENABLED(MKSGENLV21)
-  #define TX_BUFFER_SIZE 32
+  #define TX_BUFFER_SIZE 64
   #else
   #define TX_BUFFER_SIZE 64
 #endif
@@ -3743,7 +3743,7 @@
 /**
  * Auto-report position with M154 S<seconds>
  */
-#define AUTO_REPORT_POSITION
+//#define AUTO_REPORT_POSITION
 
 /**
  * Include capabilities in M115 output
